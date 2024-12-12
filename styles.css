@@ -1,16 +1,24 @@
 /* General Styles */
-body, html {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;  /* Ẩn thanh cuộn ngoài trang */
   font-family: Arial, sans-serif;
   color: #333;
-  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Ẩn thanh cuộn dọc cho toàn bộ body */
 }
 
 .container {
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 /* Top Banner */
@@ -36,7 +44,17 @@ body, html {
 .layout {
   display: grid;
   grid-template-columns: 250px auto 300px; /* Sidebar | Content | Right Panel */
-  height: calc(100% - 60px); /* Subtract height of top banner */
+  height: 100%; /* Đảm bảo các phần tử trong layout chiếm hết chiều cao của body */
+  overflow: hidden; /* Ẩn thanh cuộn trong layout */
+}
+
+.content, .sidebar, .right-panel {
+  height: 100%;  /* Đảm bảo các phần này không vượt quá chiều cao */
+  overflow: hidden; /* Ẩn thanh cuộn trong các phần này */
+}
+
+.content {
+  overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
 }
 
 /* Sidebar */
@@ -518,25 +536,4 @@ form input {
 form p {
   font-size: 0.9rem;
   color: #666;
-}
-
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .layout {
-    grid-template-columns: 200px auto;
-  }
-
-  .right-panel {
-    display: none;
-  }
-
-  .sidebar h2 {
-    font-size: 1.5rem;
-  }
-
-  .sidebar nav ul li a {
-    font-size: 1rem;
-  }
 }
