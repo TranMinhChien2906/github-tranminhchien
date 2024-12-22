@@ -23,7 +23,7 @@ class CVFile(forms.Form):
     def upload(request):
         uploadedFile = request.FILES["cv"].name
         
-        fileName = os.path.join("cv/", uploadedFile)
+        fileName = os.path.join("lib/static/cv/", uploadedFile)
         fout = open(fileName, "wb+")
         for chunk in request.FILES["cv"].chunks():
             fout.write(chunk)
