@@ -1,1 +1,1 @@
-triển khai backend, và chỉnh sửa lại 1 số giao diện
+Cập nhật thêm phần tạo tài khoản, phần main cho user, trang trang toán, và upload file 
