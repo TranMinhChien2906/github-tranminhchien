@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "text": "education",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 2,
+    "text": "name",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 3,
+    "text": "address",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 4,
+    "text": "email",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 5,
+    "text": "date of birth",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 6,
+    "text": "job title",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 7,
+    "text": "company name",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 8,
+    "text": "company position",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 9,
+    "text": "gender",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 10,
+    "text": "phone",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 11,
+    "text": "Skill",
+    "prefixKey": null,
+    "suffixKey": null,
+    "backgroundColor": "#209cee",
+    "textColor": "#ffffff"
+  }
+]

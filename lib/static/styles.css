@@ -46,6 +46,51 @@ html, body {
   .top-banner a:hover {
     text-decoration: underline;
   }
+
+  ol {
+    text-align: left;
+    padding-left: 40px;
+    margin: 1rem 0;
+  }
+  
+  .api-key-container {
+    padding: 0px 15px;
+    margin: 1.5rem 0;
+  }
+  
+  .api-key {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .api-key input {
+    flex: 1;
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .api-key button {
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .api-key button:hover {
+    background-color: #555;
+  }
+  
+  .free-trial {
+    margin: 1rem 0;
+  }  
   
   /* Layout */
   .layout {
@@ -54,8 +99,16 @@ html, body {
     height: 100%; /* Đảm bảo các phần tử trong layout chiếm hết chiều cao của body */
     overflow: hidden; /* Ẩn thanh cuộn trong layout */
   }
+
+  /* Layout */
+  .payment-layout {
+    display: grid;
+    grid-template-columns: 600px auto; /* Sidebar | Content | Right Panel */
+    height: 100%; /* Đảm bảo các phần tử trong layout chiếm hết chiều cao của body */
+    overflow: hidden; /* Ẩn thanh cuộn trong layout */
+  }
   
-  .content, .sidebar, .right-panel {
+  .content, .right-panel {
     height: 100%;  /* Đảm bảo các phần này không vượt quá chiều cao */
     overflow: hidden; /* Ẩn thanh cuộn trong các phần này */
   }
@@ -78,7 +131,8 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
+    overflow: hidden;
+    position: relative;
   }
   
   .sidebar h2 {
@@ -95,17 +149,17 @@ html, body {
   }
   
   .sidebar nav ul li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .sidebar nav ul li a {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
     font-size: 1.1rem;
     text-decoration: none;
     color: #333;
-    padding: 0.7rem;
+    padding: 0.5rem;
     border-radius: 5px;
     transition: background-color 0.2s ease;
   }
@@ -232,7 +286,7 @@ html, body {
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    height: auto;
   }
   
   .right-panel h2 {
@@ -588,3 +642,94 @@ html, body {
     color: #666;
   }
   
+  input[type=file]{
+    padding: 100px;
+    margin: 50px 0px 20px;
+    width: 220px;
+    right: 0;
+    color: transparent;
+  }
+
+  .left-panel {
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid #ddd;
+}
+
+.left-panel h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.left-panel p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.payment-panel {
+  flex: 1;
+  overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  padding: 30px;
+}
+
+.payment-panel h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.form-group input, .form-group select {
+    min-width: inherit;
+    max-width: 95%;
+    margin: 0px 0px 10px 0px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 15px;
+}

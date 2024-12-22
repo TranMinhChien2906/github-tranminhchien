@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="payment-layout">
+        <aside class="left-panel">
+            <h1>CV Parser Premium</h1>
+            <p>Subscribe to {{ request.GET.cv }} CVs per month</p>
+            <h2>€{{ request.GET.price }}.00 per month</h2>
+            <p>{{ request.GET.price }} € per month + 0.0{{ request.GET.price }} € for each CV over the included quota.</p>
+        </aside>
+        <aside class="payment-panel">
+            <h2>Pay with card</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="card-info">Card information</label>
+                    <input type="text" id="card-info" placeholder="1234 1234 1234 1234">
+                    <input type="text" placeholder="MM / YY" style="width: 48%; margin-right: 4%; display: inline-block;">
+                    <input type="text" placeholder="CVC" style="width: 48%; display: inline-block;">
+                </div>
+                <div class="form-group">
+                    <label for="cardholder-name">Cardholder name</label>
+                    <input type="text" id="cardholder-name" placeholder="Full name on card">
+                </div>
+                <div class="form-group">
+                    <label for="country">Billing address</label>
+                    <select id="country">
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="USA">United States</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+                    <input type="text" placeholder="Address line 1">
+                    <input type="text" placeholder="Address line 2">
+                    <input type="text" placeholder="City">
+                    <input type="text" placeholder="Province">
+                    <input type="text" placeholder="Postal code">
+                </div>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+            <p class="note">By confirming your subscription, you allow CV Parser Premium to charge you for future payments in accordance with their terms. You can always cancel your subscription.</p>
+        </aside>
+        <div class="container">
+    </div>
+</div>
+</body>
+</html>

@@ -19,20 +19,39 @@
       <!-- Sidebar -->
       <aside class="sidebar">
         <h2>CV Parser Premium</h2>
+        {% if request.session.loginStatus == True %}
+        <nav>
+          <ul class="menu">
+            <li><a href="dashboard#dashboard" id="dashboard" style="padding: 10px 50px;"><i class="fas fa-table-columns"></i>Dashboard</a></li>
+            <li><a href="yourapikey#apikey" id="apikey" style="padding: 10px 50px;"><i class="fas fa-key"></i>Get Your API Key</a></li>
+            <li><a href="subscribe#subscribe" id="subscribe" style="padding: 10px 50px;"><i class="fas fa-credit-card"></i>Subscribe</a></li>
+          </ul>
+        </nav>
+        <div class="divider">
+        </div>
+        {% endif %}
         <nav>
           <ul>
+            {% if request.session.loginStatus != True %}
             <li><a href="/#home" id="home" target="content-frame" style="padding: 10px 50px;" class="{{name}}"><i class="fas fa-home"></i> Home</a></li>
+            {% endif %}
             <li><a href="getstarted#getstarted" id="getstarted" target="content-frame" style="padding: 10px 50px;" class="{{name}}"><i class="fas fa-play"></i> Get Started</a></li>
             <li><a href="codesnippet#codesnippet" id="codesnippet" target="content-frame" style="padding: 10px 50px;" class="{{name}}"><i class="fas fa-code"></i> Code Snippet</a></li>
+            {% if request.session.loginStatus != True %}
             <li><a href="pricing#pricing" id="pricing" target="content-frame" style="padding: 10px 50px;" class="{{name}}"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+            {% endif %}
           </ul>
         </nav>
         <div class="sidebar-footer">
-            <a href="signup" target="content-frame" class="btn-primary">Sign up</a>
-            <a href="login" target="content-frame" class="btn-secondary">Log in</a>
-          </div>
+          {% if request.session.loginStatus == True %}
+          <a href="logout" target="content-frame" class="btn-secondary">Log out</a>
+          {% else %}
+          <a href="signup" target="content-frame" class="btn-primary">Sign up</a>
+          <a href="login" target="content-frame" class="btn-secondary">Log in</a>
+          {% endif %}
+        </div>
       </aside>
-
+      
       <!-- Main Content -->
       <main class="content">
         {% if name == "home" %}
@@ -206,6 +225,150 @@
             </section>
           </div>
         </body>
+        {% elif name == 'dashboard' %}
+        <main class="center-content">
+          <div class="content-container">
+            <h1>Dashboard</h1>
+            <p>What you need to do:</p>
+            <ol>
+              <li>Copy-paste the <a href="codesnippet#codesnippet">code snippet</a> to call our API.</li>
+              <li><a href="yourapikey#apikey">Copy your API key</a> to insert in the code snippet.</li>
+              <li>Use your free credits to test parsing CVs with the API.</li>
+              <li>Map the extracted data fields to your data structure.</li>
+              <li><a href="subscribe#subscribe">Get your subscription</a>.</li>
+            </ol>
+            <p class="free-trial">You can parse 10 CVs for free with the API. <a href="subscribe#subscribe" class="btn-primary">Choose your subscription</a></p>
+          </div>
+        </main>
+        {% elif name == 'apikey' %}
+        <main class="center-content">
+          <div class="content-container">
+            <h1>Your API Keys</h1>
+            <p>These keys are used to access your CV Parser Premium API:</p>
+            <ul>
+              <li>Only one key is necessary to make an API call.</li>
+              <li>When regenerating a key, you can use the other key for continued access.</li>
+              <li>Do not share your keys. Store them securely.</li>
+            </ul>
+            <div class="api-key-container">
+              <div class="api-key">
+                <input type="password" value="•••••••••••••••" readonly>
+                <button class="btn-secondary">Copy</button>
+                <button class="btn-secondary">Regenerate</button>
+              </div>
+              <div class="api-key">
+                <input type="password" value="•••••••••••••••" readonly>
+                <button class="btn-secondary">Copy</button>
+                <button class="btn-secondary">Regenerate</button>
+              </div>
+            </div>
+            <button class="btn-primary" style="margin: 15px;">Reveal API Keys</button>
+          </div>
+        </main>
+        {% elif name == 'subscribe' %}
+        <div class="container">
+          <!-- Pricing Section -->
+          <section class="pricing-section">
+            <h1>Pricing</h1>
+            <p class="description">Plans for everyone, with volume discounts</p>
+            <ul class="pricing-details">
+              <li>Plans are monthly subscriptions.</li>
+              <li>No commitment. You can cancel/downgrade/upgrade at any time.</li>
+              <li>Each plan lets you parse up to a certain number of CVs per month.</li>
+              <li>If you exceed this number, you are billed for each additional CV parsed.</li>
+            </ul>
+            <table class="pricing-table">
+              <thead>
+                <tr>
+                  <th>Plan</th>
+                  <th>Number of CVs per month</th>
+                  <th>Subscribe</th>
+                  <th>Price per month</th>
+                  <th>Price per additional CV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>A</strong></td>
+                  <td>1,000 CVs</td>
+                  <td>
+                    <a href="payment?price=59&cv=1000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$59</td>
+                  <td>$0.059</td>
+                </tr>
+                <tr>
+                  <td><strong>B</strong></td>
+                  <td>5,000 CVs</td>
+                  <td>
+                      <a href="payment?price=129&cv=5000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$129</td>
+                  <td>$0.0258</td>
+                </tr>
+                <tr>
+                  <td><strong>C</strong></td>
+                  <td>20,000 CVs</td>
+                  <td>
+                      <a href="payment?price=219&cv=20000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$219</td>
+                  <td>$0.01095</td>
+                </tr>
+                <tr>
+                  <td><strong>D</strong></td>
+                  <td>35,000 CVs</td>
+                  <td>
+                      <a href="payment?price=349&cv=35000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$349</td>
+                  <td>$0.00997</td>
+                </tr>
+                <tr>
+                  <td><strong>E</strong></td>
+                  <td>50,000 CVs</td>
+                  <td>
+                      <a href="payment?price=469&cv=50000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$469</td>
+                  <td>$0.00938</td>
+                </tr>
+                <tr>
+                  <td><strong>F</strong></td>
+                  <td>75,000 CVs</td>
+                  <td>
+                      <a href="payment?price=669&cv=75000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$669</td>
+                  <td>$0.00892</td>
+                </tr>
+                <tr>
+                  <td><strong>G</strong></td>
+                  <td>100,000 CVs</td>
+                  <td>
+                      <a href="payment?price=849&cv=100000">
+                      <button class="btn-subscribe">Subscribe</button>
+                    </a>
+                  </td>
+                  <td>$849</td>
+                  <td>$0.00849</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
         {% elif name == 'login' %}
         <head>
           <meta charset="UTF-8">
@@ -221,13 +384,13 @@
                 <button class="btn-google">
                   <i class="fab fa-google"></i> Log in with Google
                 </button>
+                <div class="divider">
+                  <span>or</span>
+                </div>
                 -->
-              <div class="divider">
-                <span>or</span>
-              </div>
-              <form>
-                <input type="email" placeholder="Your email" required>
-                <input type="password" placeholder="Password" required>
+              <form action="/login" method="post">
+                {% csrf_token %}
+                {{ form }}
                 <button type="submit" class="btn-submit">Log in</button>
               </form>
               <p>
@@ -253,13 +416,13 @@
                 <button class="btn-google">
                   <i class="fab fa-google"></i> Sign up with Google
                 </button>
+                <div class="divider">
+                  <span>or</span>
+                </div>
                 -->
-              <div class="divider">
-                <span>or</span>
-              </div>
-              <form>
-                <input type="email" placeholder="Your email" required>
-                <input type="password" placeholder="Password" required>
+                <form action="/signup" method="post">
+                {% csrf_token %}
+                {{ form }}
                 <button type="submit" class="btn-submit">Sign up</button>
               </form>
               <p>
@@ -273,15 +436,23 @@
         {% endif %}
       </main>
 
-      {% if name == "home"%}
+      {% if name == "home" or name == "dashboard" %}
       <!-- Right Panel -->
       <aside class="right-panel">
         <h2>Try it</h2>
-        <button class="btn-secondary">Upload a CV</button>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form }}
+        </form>
+        {% if request.session.loginStatus != True %}
         <footer>
           <p>Made in Paris with A.I.<br>Our goal is to bring efficiency to all HR companies around the world, no matter their size.</p>
           <p>First step: let's make precise CV data affordable to anyone.</p>
         </footer>
+        {% else %}
+        <footer>
+        </footer>
+        {% endif %}
       </aside>
       {% endif %}
     </div>

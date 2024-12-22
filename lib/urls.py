@@ -24,10 +24,12 @@ urlpatterns = [
     path('getstarted', views.index, {"name": "getstarted"}),
     path('codesnippet', views.index, {"name": "codesnippet"}),
     path('pricing', views.index, {"name": "pricing"}),
-    path('login', views.index, {"name": "login"}),
-    path('signup', views.index, {"name": "signup"}),
-    path('dashboard', views.dashboard),
-    path('yourapikey', views.yourapikey),
-    path('subcribe', views.subcribe),
+    path('login', views.login, {"name": "login"}),
+    path('signup', views.signup, {"name": "signup"}),
+    path('logout', views.logout, {"name": "logout"}),
+    path('dashboard', views.index, {"name":"dashboard"}),
+    path('yourapikey', views.index, {"name":"apikey"}),
+    path('subscribe', views.index, {"name":"subscribe"}),
+    path('payment', views.payment, {"name":"payment"}),
 ]
 urlpatterns += staticfiles_urlpatterns() 
