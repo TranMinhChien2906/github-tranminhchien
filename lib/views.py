@@ -8,7 +8,8 @@ def index(request, name):
     if request.method == "POST":
         form = CVFile(request.POST, request.FILES)
         if form.is_valid():
-            CVFile.upload(request)
+            filePath = CVFile.upload(request)
+            CVFile.parse(filePath)
             return HttpResponseRedirect("/")
     else:
         form = CVFile()
